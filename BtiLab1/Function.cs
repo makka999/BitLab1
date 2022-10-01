@@ -8,8 +8,10 @@ namespace BtiLab1
 {
     internal class Function
     {
-        public static string Encrypt(char[] textToEncrypt, char[] alphabet, int key)
+        public static string Encrypt(string text, char[] alphabet, int key)
         {
+            text = text.ToLower();
+            char[] textToEncrypt = text.ToCharArray();
             int alphabetLenght = alphabet.Length;
             int length = textToEncrypt.Length;
             char[] encryptedChar = new char[length];
@@ -31,9 +33,9 @@ namespace BtiLab1
             return encrypToText;
         }
 
-        public static string UnEncrypt (char[] textToEncrypt, char[] alphabet, int key)
+        public static string UnEncrypt (string text, char[] alphabet, int key)
         {
-            return Encrypt(textToEncrypt, alphabet, key * -1);
+            return Encrypt(text, alphabet, key * -1);
         }
 
     }
